@@ -13,12 +13,9 @@ const  ChatRoom =()=> {
     const dummy = useRef();
     const messagesRef = firestore.collection('messages');
     const query = messagesRef.orderBy('createdAt').limit(25);
-  
     const [messages] = useCollectionData(query, { idField: 'id' });
-  
     const [formValue, setFormValue] = useState('');
-  
-  
+
     const sendMessage = async (e) => {
       e.preventDefault();
   
@@ -36,23 +33,18 @@ const  ChatRoom =()=> {
       dummy.current.scrollIntoView({ behavior: 'smooth' });
     }
   
-    return (<>
+    return (<div>
       <main>
   
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-  
         <span ref={dummy}></span>
-  
       </main>
-  
       <form onSubmit={sendMessage}>
-  
         <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Start Typing . . ." />
-  
         <button className='send' type="submit" disabled={!formValue}>Send</button>
   
       </form>
-    </>)
+    </div>)
   }
 
   export default ChatRoom

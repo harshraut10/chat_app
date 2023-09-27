@@ -10,9 +10,9 @@ const SignIn =()=> {
     }
   
     return (
-      <>
+      <div>
         <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-      </>
+      </div>
     )
   
   }

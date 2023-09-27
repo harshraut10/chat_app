@@ -19,6 +19,7 @@ firebase.initializeApp({
 
 })
 
+//instance of firebase authentication service
 const auth = firebase.auth();
 
 function App() {
@@ -35,7 +36,6 @@ function App() {
       <section>
         {user ? <ChatRoom /> : <SignIn />}
       </section>
-
     </div>
   );
 }
